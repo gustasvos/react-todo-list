@@ -10,9 +10,18 @@ function App() {
     setNewTask(event.target.value)
   }
 
-  const deleteTask = (taskName) => {
+  const addTask = () => {
+    const task = {
+      id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
+      taskName: newTask,
+    }
+    setTodoList([...todoList, task]) // old list + the new task
+  }
+
+  const deleteTask = (id) => {
+    // setTodoList(todoList.filter((task) => task !==taskName ))
     const newTodoList = todoList.filter((task) => {
-      return task !== taskName
+      return task.id !== id
     })
     setTodoList(newTodoList)
   }
@@ -21,12 +30,7 @@ function App() {
     <div className="App">
       <div className='addTask'>
         <input onChange={handleChange} />
-        <button
-          onClick={() => {
-            const newTodoList = [...todoList, newTask]
-            setTodoList(newTodoList)
-          }}
-        >
+        <button onClick={addTask}>
           Add task
         </button>
       </div>
@@ -34,8 +38,9 @@ function App() {
         {todoList.map((task) => {
           return (
             <div>
-              <h1>{task}</h1>
-              <button onClick={() => deleteTask(task)}>X</button>
+              <h1>{task.taskName}</h1>
+              {/* a function with a parameter needs to be called inside a anonymous function to work */}
+              <button onClick={() => deleteTask(task.id)}>X</button>
             </div>
           )
 
