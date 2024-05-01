@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import './App.css';
+import Task from './Components/Task';
 
 function App() {
 
   const [todoList, setTodoList] = useState([])
-  const [newTask, setNewTask] = useState([])
+  const [newTask, setNewTask] = useState("")
 
   const handleChange = (event) => {
     setNewTask(event.target.value)
@@ -37,15 +38,13 @@ function App() {
       <div className='taskList'>
         {todoList.map((task) => {
           return (
-            <div>
-              <h1>{task.taskName}</h1>
-              {/* a function with a parameter needs to be called inside a anonymous function to work */}
-              <button onClick={() => deleteTask(task.id)}>X</button>
-            </div>
+            <Task
+              taskName={task.taskName}
+              id={task.id}
+              deleteTask={deleteTask} // can pass function as props
+            />
           )
-
         })}
-
       </div>
     </div>
   );
