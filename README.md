@@ -1,3 +1,9 @@
+# Things to do (todo in todo ? nvm)
+
+- Update tasks;
+- Create a way to mark tasks as done (like ~~do homework~~ or smth);
+- css
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
