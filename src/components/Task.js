@@ -6,6 +6,9 @@ const Task = (props) => {
             <button onClick={() => props.deleteTask(props.id)}>
                 X
             </button>
+            <button onClick={() => props.updateTask(props.id)}>
+                Update
+            </button>
         </div>
     )
 
