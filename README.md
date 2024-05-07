@@ -1,6 +1,6 @@
 # Things to do (todo in todo ? nvm)
 
-- Update tasks;
+- ~~Update tasks;~~
 - Create a way to mark tasks as done (like ~~do homework~~ or smth);
 - css
 

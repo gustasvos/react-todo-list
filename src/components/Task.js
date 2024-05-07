@@ -1,3 +1,5 @@
+import '../styles/Task.css'
+
 const Task = (props) => {
     return (
         <div>
@@ -6,8 +8,8 @@ const Task = (props) => {
             <button onClick={() => props.deleteTask(props.id)}>
                 X
             </button>
-            <button onClick={() => props.updateTask(props.id)}>
-                Update
+            <button onClick={() => props.editTask(props.id)}>
+                Edit
             </button>
         </div>
     )

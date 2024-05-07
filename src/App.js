@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import './styles/App.css'
 import Task from './components/Task';
 
 function App() {
@@ -20,22 +20,21 @@ function App() {
   }
 
   const deleteTask = (id) => {
-    // setTodoList(todoList.filter((task) => task.id !==id ))
-    const newTodoList = todoList.filter((task) => {
-      return task.id !== id
-    })
-    setTodoList(newTodoList)
+    setTodoList(todoList.filter((task) => task.id !==id ))
+    // const newTodoList = todoList.filter((task) => {
+    //   return task.id !== id
+    // })
+    // setTodoList(newTodoList)
   }
 
-  const updateTask = (id) => {
+  const editTask = (id) => {
     setTodoList(
       todoList.map((task) => {
         if (task.id === id) {
           const edit = prompt('edit here: ')
-          return {...task, taskName: edit}
-        } else {
-          return task
+          return { ...task, taskName: edit }
         }
+        else return task
       })
     )
   }
@@ -55,7 +54,7 @@ function App() {
               taskName={task.taskName}
               id={task.id}
               deleteTask={deleteTask} // can pass function as props
-              updateTask={updateTask}
+              editTask={editTask}
             />
           )
         })}
